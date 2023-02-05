@@ -15,30 +15,24 @@ import { Header, SearchForm, SearchFormButton, SearchFormInput } from "./Searchb
       onSubmit: PropTypes.func.isRequired,
     };
 
+    handleChangeInput = e => {
+      this.setState({
+          searchQuery: e.target.value
+      })
+    }
+
      handleSubmit = e =>{
         e.preventDefault();
-        // console.log(this.setState.searchQuery)
-
         if (this.state.searchQuery.trim() === '') {
           toast.error('Enter a request!');
           return;
         }
         this.props.onSubmit(this.state.searchQuery);
-        this.setState({ searchQuery: 'dog' });
-        // console.log('search')
-        // console.log(this.setState.searchQuery)
-
-        
+        this.setState({
+          searchQuery: ''
+      })
      }
     
-     handleChangeInput = e => {
-        this.setState({
-            searchQuery: e.target.value
-        })
-        // console.log(this.setState.searchQuery)
-
-      }
-
      render () {
         return (
           <Header onSubmit={this.handleSubmit}>
@@ -52,7 +46,7 @@ import { Header, SearchForm, SearchFormButton, SearchFormInput } from "./Searchb
               </SearchFormButton>          
               <SearchFormInput
                 type="text"
-                value={this.state.name}
+                value={this.state.searchQuery}
                 onChange={this.handleChangeInput}
                 autoComplete="off"
                 autoFocus
