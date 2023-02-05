@@ -39,7 +39,8 @@ export default class App extends Component {
                 }));
               } else if 
               (searchImg !== prevSearchImg) {
-                this.setState({images: response.hits});
+                this.setState({images: response.hits})
+                
                 if (response.hits.length<12){
                   this.setState({loadMore: false})
                 }

@@ -17,18 +17,26 @@ import { Header, SearchForm, SearchFormButton, SearchFormInput } from "./Searchb
 
      handleSubmit = e =>{
         e.preventDefault();
+        // console.log(this.setState.searchQuery)
+
         if (this.state.searchQuery.trim() === '') {
           toast.error('Enter a request!');
           return;
         }
         this.props.onSubmit(this.state.searchQuery);
-        this.setState({ searchQuery: '' });
+        this.setState({ searchQuery: 'dog' });
+        // console.log('search')
+        // console.log(this.setState.searchQuery)
+
+        
      }
     
      handleChangeInput = e => {
         this.setState({
             searchQuery: e.target.value
         })
+        // console.log(this.setState.searchQuery)
+
       }
 
      render () {
