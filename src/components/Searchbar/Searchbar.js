@@ -28,9 +28,7 @@ import { Header, SearchForm, SearchFormButton, SearchFormInput } from "./Searchb
           return;
         }
         this.props.onSubmit(this.state.searchQuery);
-        this.setState({
-          searchQuery: ''
-      })
+        this.setState({searchQuery: ''})
      }
     
      render () {
